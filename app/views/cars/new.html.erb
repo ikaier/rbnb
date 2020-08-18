@@ -1,0 +1,8 @@
+<h1>Rent your car!</h1>
+<%= simple_form_for @car do |f| %>
+  <%= f.input :model %>
+  <%= f.input :description %>
+  <%= f.input :price, as: :numeric %>
+  <%= f.input :category %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
