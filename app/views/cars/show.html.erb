@@ -1,4 +1,7 @@
 <h1>The car <%= @car.model %></h1>
+<% @car.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
 <h3>Description:</h3>
 <p><%= @car.description %></p>
 <p>Price: <%= @car.price %></p>
