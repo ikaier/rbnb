@@ -3,9 +3,16 @@ Rails.application.routes.draw do
   get 'cars/new', to:'cars#new'
   post 'cars', to:'cars#create'
   get 'cars/:id', to:'cars#show', as: :car
+
   resources :pages do 
     collection do
       get :home
+    end
+  end
+
+  resources :cars do 
+    collection do
+      get :new
     end
   end
 
