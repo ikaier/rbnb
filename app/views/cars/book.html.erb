@@ -1,0 +1,20 @@
+<div class="container mb-5">
+  <h1 class="title">One Last Step...</h1>
+
+  <div class="card" style="width: 40%;">
+  <img class="card-img-top" src="https://d1zgdcrdir5wgt.cloudfront.net/media/vehicle/images/7c0IdMWbT7WJG_X4DFCZuw.1440x700.jpg" alt="Card image cap">
+    <div class="card-body">
+    <h5 class="card-title"><%= @car.model %></h5>
+    <p class="card-text"><%= @car.description %></p>
+    </div>
+  <ul class="list-group list-group-flush">
+  <li class="list-group-item"><%= @car.category %></li>
+  <li class="list-group-item">Price: <%= @car.price %> /Day</li>
+  <li class="list-group-item">Location</li>
+  </ul>
+  <div class="card-body row">
+  <%= button_to 'book' ,{:controller => 'contracts', :action => 'create', :user=> current_user, :car => @car}, {:method => :post, class: "btn btn-blue"}%>
+  <%= link_to "Cancel", "/pages/home", class: "btn btn-grey" %>
+  </div>
+</div>
+</div>
