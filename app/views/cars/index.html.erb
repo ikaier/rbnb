@@ -1,18 +1,19 @@
 <div class="cards-container">
-<h1>Search Results for "<%= @parameter %>" </h1> 
+<h1>Search Results for "<%= @parameter %>" </h1>
 <br/>
 <div class="btn-group">
   <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Sorted By
   </button>
 
-  <% def ascending() %>
+<!--  <% def ascending() %>
     <%= render "/shared/ascendingcars" %>
-    <% end %>
+  <% end %>
 
   <% def descending() %>
-  <%= render "/shared/descendingcars" %>
+    <%= render "/shared/descendingcars" %>
   <% end %>
+-->
 
 
   <div class="dropdown-menu">
@@ -21,18 +22,27 @@
   <%= button_tag "Price Down", type: 'button', onclick: "descending()", class: 'dropdown-item' %>
   <%= button_tag "Price Up ", type: 'button', onclick: "ascending()", class: 'dropdown-item' %>
 <!--
-     <a class="dropdown-item" onclick="descending()">Price Down</a> 
-    <a class="dropdown-item" onclick="ascending()">Price Up </a> 
+     <a class="dropdown-item" onclick="descending()">Price Down</a>
+    <a class="dropdown-item" onclick="ascending()">Price Up </a>
     -->
   </div>
 </div>
-<div id="content">
-<%= render "/shared/ascendingcars" %>
+  <div>
+    <div id="content">
+    <%= render "/shared/ascendingcars" %>
+    </div>
+
+  <!--
+  <%= render "shared/ascendingcars" if @ascendingcars %>
+  <%= render "shared/descendingcars" unless @ascendingcars %>
+  -->
+
+    <div id="map"
+       style="width: 100%; height: 600px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+
 </div>
 
-<!--
-<%= render "shared/ascendingcars" if @ascendingcars %>
-<%= render "shared/descendingcars" unless @ascendingcars %>
--->
 
-</div>
