@@ -34,6 +34,10 @@ class CarsController < ApplicationController
     end
   end
 
+ def book
+  @car = Car.find(params[:id])
+ end
+
   def car_params
     params.require(:car).permit(:model, :description, :price, :category, photos: [])
   end
