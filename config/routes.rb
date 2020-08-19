@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  get 'cars', to: 'cars#index'
+  get 'cars/search', to: 'cars#index', :as => 'search_page'
   get 'cars/new', to:'cars#new'
   post 'cars', to:'cars#create'
   get 'cars/:id', to:'cars#show', as: :car
+
 
   devise_for :users
   root to: 'pages#home', as: :root

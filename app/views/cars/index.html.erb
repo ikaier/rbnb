@@ -1,2 +1,38 @@
-<h1>Cars#index</h1>
-<p>Find me in app/views/cars/index.html.erb</p>
+<div class="cards-container">
+<h1>Search Result for "<%= @parameter %>" </h1> 
+<br/>
+<div class="btn-group">
+  <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sorted By
+  </button>
+<!--
+  <% def ascending() %>
+    <%= render "/shared/ascendingcars" %>
+    <% end %>
+
+  <% def descending() %>
+  <%= render "/shared/descendingcars" %>
+  <% end %>
+-->
+
+  <div class="dropdown-menu">
+
+
+  <%= button_tag "Price Down", type: 'button', onclick: "descending()", class: 'dropdown-item' %>
+  <%= button_tag "Price Up ", type: 'button', onclick: "ascending()", class: 'dropdown-item' %>
+<!--
+     <a class="dropdown-item" onclick="descending()">Price Down</a> 
+    <a class="dropdown-item" onclick="ascending()">Price Up </a> 
+    -->
+  </div>
+</div>
+<div id="content">
+<%= render "/shared/ascendingcars" %>
+</div>
+
+<!--
+<%= render "shared/ascendingcars" if @ascendingcars %>
+<%= render "shared/descendingcars" unless @ascendingcars %>
+-->
+
+</div>
