@@ -4,6 +4,17 @@ Rails.application.routes.draw do
   post 'cars', to:'cars#create'
   get 'cars/:id', to:'cars#show', as: :car
 
+  resources :pages do 
+    collection do
+      get :home
+    end
+  end
+
+  resources :cars do 
+    collection do
+      get :new
+    end
+  end
 
   devise_for :users
   root to: 'pages#home', as: :root
