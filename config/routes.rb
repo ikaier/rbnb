@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   get 'cars/new', to:'cars#new'
   post 'cars', to:'cars#create'
   get 'cars/:id', to:'cars#show', as: :car
-
+  resources :pages do 
+    collection do
+      get :home
+    end
+  end
 
   devise_for :users
   root to: 'pages#home', as: :root
