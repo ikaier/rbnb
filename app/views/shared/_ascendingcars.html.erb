@@ -8,8 +8,9 @@
         <h5 class="card-title"> <%= car.model %> </h5>
         <p class="card-text"> <%= car.description %> </p>
         <p class="card-text"><strong> <%= car.price %> </strong></p>
+        <%= link_to "Check out the car!", car_path(car) %>
         </div>
         </div>
-        </div>
+    </div>
 <% end %>
 </div>
