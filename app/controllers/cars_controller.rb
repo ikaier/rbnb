@@ -3,13 +3,22 @@ class CarsController < ApplicationController
     if params[:search].blank?
       redirect_to(root_path, alert: "Empty field!") and return
     else
-      @cars = Cars.where()
+      #@cars = Car.all.where(category:"van")
+      @parameter = params[:search].downcase  
+      @cars = Car.all.where("lower(category) LIKE :search", search: @parameter)  
     end
   end
 
   def show
     @car = Car.find(params[:id])
   end
+
+#  def descending_help
+ #   respond_to do |format|
+ #     format.html {}
+ #     format.js
+ #   end
+#  end
 
   def new
     @car = Car.new
