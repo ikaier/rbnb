@@ -28,5 +28,7 @@
   <h1 class="title"><%= @car.model %></h1>
   <h3 class="description"><%= @car.description %></h3>
   <h2 class="price">$<%= @car.price %> / day</h2>
+  <%= link_to "Book this car!", book_path %>
+  <br>
   <%= link_to "Go back for a new search", search_page_path %>
 </div>
