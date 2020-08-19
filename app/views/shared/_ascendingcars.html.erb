@@ -1,0 +1,14 @@
+<div class="row">
+<% @cars.sort_by(&:price).each do |car| %>  
+    <div class="col-sm-4">
+       <div class="card mt-4">
+        <img class="card-img-top" src="https://d1zgdcrdir5wgt.cloudfront.net/media/vehicle/images/7c0IdMWbT7WJG_X4DFCZuw.1440x700.jpg" alt="Card image cap">
+        <div class="card-body">
+        <h5 class="card-title"> <%= car.model %> </h5>
+        <p class="card-text"> <%= car.description %> </p>
+        <p class="card-text"><strong> <%= car.price %> </strong></p>
+        </div>
+        </div>
+        </div>
+<% end %>
+</div> 
