@@ -4,8 +4,18 @@ class CarsController < ApplicationController
       redirect_to(root_path, alert: "Empty field!") and return
     else
       #@cars = Car.all.where(category:"van")
-      @parameter = params[:search].downcase  
-      @cars = Car.all.where("lower(category) LIKE :search", search: @parameter)  
+      @parameter = params[:search].downcase
+      @cars = Car.all.where("lower(category) LIKE :search", search: @parameter)
+
+      @sets = Car.geocoded
+
+      @markers = @sets.map do |car|
+        {
+          lat: car.latitude,
+          lng: car.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { car: car })
+        }
+      end
     end
   end
 
@@ -39,6 +49,6 @@ class CarsController < ApplicationController
  end
 
   def car_params
-    params.require(:car).permit(:model, :description, :price, :category, photos: [])
+    params.require(:car).permit(:model, :description, :price, :category, :address, photos: [])
   end
 end
