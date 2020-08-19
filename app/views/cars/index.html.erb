@@ -6,13 +6,14 @@
     Sorted By
   </button>
 
-  <% def ascending() %>
+<!--  <% def ascending() %>
     <%= render "/shared/ascendingcars" %>
-    <% end %>
+  <% end %>
 
   <% def descending() %>
-  <%= render "/shared/descendingcars" %>
+    <%= render "/shared/descendingcars" %>
   <% end %>
+-->
 
 
   <div class="dropdown-menu">
@@ -26,18 +27,22 @@
     -->
   </div>
 </div>
-<div id="content">
-<%= render "/shared/ascendingcars" %>
+  <div>
+    <div id="content">
+    <%= render "/shared/ascendingcars" %>
+    </div>
+
+  <!--
+  <%= render "shared/ascendingcars" if @ascendingcars %>
+  <%= render "shared/descendingcars" unless @ascendingcars %>
+  -->
+
+    <div id="map"
+       style="width: 100%; height: 600px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+
 </div>
 
-<!--
-<%= render "shared/ascendingcars" if @ascendingcars %>
-<%= render "shared/descendingcars" unless @ascendingcars %>
--->
 
-</div>
-
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
