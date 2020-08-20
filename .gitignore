@@ -27,6 +27,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/congig/cloudinary.yml
 
 /public/packs
 /public/packs-test
@@ -43,3 +44,4 @@ yarn-debug.log*
 .env*
 .env*
 .env*
+.cnv*
