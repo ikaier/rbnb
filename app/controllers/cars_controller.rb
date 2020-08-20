@@ -5,7 +5,9 @@ class CarsController < ApplicationController
     else
       #@cars = Car.all.where(category:"van")
       @parameter = params[:search].downcase
-      @cars = Car.all.where("lower(category) LIKE :search", search: @parameter)
+      Car.reindex
+      @cars= Car.search @parameter
+      #@cars = Car.all.where("lower(category) LIKE :search OR lower(model) LIKE :search OR lower(description) LIKE :search", search: @parameter)
 
       @sets = Car.geocoded
 
