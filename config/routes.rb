@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'cars/search', to: 'cars#index', :as => 'search_page'
+  get 'cars/:id/search', to: 'cars#index'
   get 'cars/new', to:'cars#new'
   post 'cars', to:'cars#create'
   get 'cars/:id', to:'cars#show', as: :car
