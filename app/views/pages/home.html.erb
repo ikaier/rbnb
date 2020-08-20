@@ -22,20 +22,21 @@
 <div class="cards-container">
     <h2><strong>Top Categories</strong></h2>
     <div class="cards">
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://resources.turo.com/f/81934/424x318/7f4e44231c/category-carousel_classic-2x.jpg)">
-        Classics
+
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://resources.turo.com/f/81934/424x318/df302dea72/category-carousel_luxury-2x.jpg)">
+        <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[0]%>"><%=@counts.keys[0]%></a>
       </div>
 
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://resources.turo.com/f/81934/424x318/3fc8dbffa5/category-carousel_minivan-2x.jpg)">
-        Minivans
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://resources.turo.com/f/81934/424x318/7f4e44231c/category-carousel_classic-2x.jpg)">
+        <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[1]%>"><%=@counts.keys[1]%></a>
       </div>
 
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://resources.turo.com/f/81934/424x318/288f0f5045/category-carousel_convertible-2x.jpg)">
-        Convertibles
+        <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[2]%>"><%=@counts.keys[2]%></a>
       </div>
 
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://resources.turo.com/f/81934/424x318/df302dea72/category-carousel_luxury-2x.jpg)">
-        Luxury
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://resources.turo.com/f/81934/424x318/3fc8dbffa5/category-carousel_minivan-2x.jpg)">
+        <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[3]%>"><%=@counts.keys[3]%></a>
       </div>
     </div>
 </div>
@@ -43,25 +44,20 @@
 <div class="cards-container">
   <h2><strong>Last Offers</strong></h2>
   <div class="row">
-    <div class="col-sm-6">
-      <div class="card">
-        <img class="card-img-top" src="https://d1zgdcrdir5wgt.cloudfront.net/media/vehicle/images/7c0IdMWbT7WJG_X4DFCZuw.1440x700.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Car Name</h5>
-          <p class="card-text">Car Description</p>
-          <p class="card-text"><strong>Car Price</strong></p>
+    <% @lastest_cars.each do |car| %>
+        <div class="col-sm-6">
+          <div class="card">
+            <%= cl_image_tag car.photos.first.key, crop: :scale, class: 'card-img-top' %>
+              <div class="card-infos">
+                <h5 class="card-title"><%= car.model %></h5>
+                <h5 class="card-title">$<%= car.price %> / day</h5>
+              </div>
+              <div class="center">
+              <%= button_to "Book Now!", car_path(car), class: "btn btn-blue" %>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <img class="card-img-top" src="https://d1zgdcrdir5wgt.cloudfront.net/media/vehicle/images/7c0IdMWbT7WJG_X4DFCZuw.1440x700.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Car Name</h5>
-          <p class="card-text">Car Description</p>
-          <p class="card-text"><strong>Car Price</strong></p>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
+
