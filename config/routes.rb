@@ -3,17 +3,17 @@ Rails.application.routes.draw do
   get 'cars/new', to:'cars#new'
   post 'cars', to:'cars#create'
   get 'cars/:id', to:'cars#show', as: :car
-  get 'cars/:id/book', to:'cars#book'
+  get 'cars/:id/book', to:'cars#book', as: :book
   #get 'cars/:id/contracts/new', to:'contracts#new'
   get 'contracts/success', to:'contracts#success', as: :success
-  post 'cars/:id/book', to:'contracts#create', as: :book
-  resources :pages do 
+  post 'cars/:id/book', to:'contracts#create'
+  resources :pages do
     collection do
       get :home
     end
   end
 
-  resources :cars do 
+  resources :cars do
     collection do
       get :new
     end
