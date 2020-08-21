@@ -4,43 +4,51 @@
     <br/>
     <%= form_tag(search_page_path, :method => "get") do %>
     <div class="input-group md-form form-sm form-2 pl-0">
+
       <%= search_field_tag :search, params[:search], placeholder: "Search anything", class: "form-control my-0 py-1 red-border" %>
-     <!-- <div class="input-group-btn">--> 
-      <span class="p-1 mb-1 bg-light ">
-      <%= button_tag "", :class => 'btn fas fa-search text-grey',:name => nil%>
-      </span>
-    
+     <div class="input-group-btn">
+      <%= button_tag "Search", :class => 'btn btn-blue',:name => nil%>
+    </div>
+
     </div>
     <% end %>
   </div>
 </div>
 
 <div class="cards-container">
-    <h2><strong>Top Categories</strong></h2>
-    <div class="cards">
-
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://resources.turo.com/f/81934/424x318/df302dea72/category-carousel_luxury-2x.jpg)">
+  <h2><strong>Top Categories</strong></h2>
+  <div class="card-deck">
+    <div class="card">
+      <%= cl_image_tag @first_cat.photos.first.key, height: 280, width: 390, crop: :scale, class: 'card-img-top' %>
+      <div class="card-body">
         <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[0]%>"><%=@counts.keys[0]%></a>
       </div>
-
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://resources.turo.com/f/81934/424x318/7f4e44231c/category-carousel_classic-2x.jpg)">
+    </div>
+    <div class="card">
+      <%= cl_image_tag @second_cat.photos.first.key, height: 280, width: 390, crop: :scale, class: 'card-img-top' %>
+      <div class="card-body">
         <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[1]%>"><%=@counts.keys[1]%></a>
       </div>
-
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://resources.turo.com/f/81934/424x318/288f0f5045/category-carousel_convertible-2x.jpg)">
+    </div>
+    <div class="card">
+      <%= cl_image_tag @third_cat.photos.first.key, height: 280, width: 390, crop: :scale, class: 'card-img-top' %>
+      <div class="card-body">
         <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[2]%>"><%=@counts.keys[2]%></a>
       </div>
-
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://resources.turo.com/f/81934/424x318/3fc8dbffa5/category-carousel_minivan-2x.jpg)">
+    </div>
+    <div class="card">
+      <%= cl_image_tag @fourth_cat.photos.first.key, height: 280, width: 390, crop: :scale, class: 'card-img-top' %>
+      <div class="card-body">
         <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[3]%>"><%=@counts.keys[3]%></a>
       </div>
     </div>
+  </div>
 </div>
 
 <div class="cards-container">
   <h2><strong>Last Offers</strong></h2>
   <div class="row">
-    <% @lastest_cars.each do |car| %>
+    <% @lastest_cars.limit(2).each do |car| %>
         <div class="col-sm-6">
           <div class="card">
             <%= cl_image_tag car.photos.first.key, crop: :scale, class: 'card-img-top' %>
