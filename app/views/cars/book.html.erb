@@ -3,7 +3,7 @@
 
   <div class="card" style="width: 40%;">
   <% if @car.photos.attached? %>
-    <%= cl_image_tag @car.photos.first.key, height: 200, width: 100, crop: :scale, class: 'card-img-top' %>
+    <%= cl_image_tag @car.photos.first.key, crop: :scale, class: 'card-img-top' %>
   <% else %>
     <img class="card-img-top" src="https://d1zgdcrdir5wgt.cloudfront.net/media/vehicle/images/7c0IdMWbT7WJG_X4DFCZuw.1440x700.jpg" alt="Card image cap">
   <% end %>
