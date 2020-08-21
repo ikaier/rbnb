@@ -19,25 +19,41 @@
   <h2><strong>Top Categories</strong></h2>
   <div class="card-deck">
     <div class="card">
-      <%= cl_image_tag @first_cat.photos.first.key, height: 280, width: 390, crop: :scale, class: 'card-img-top' %>
+      <% if @first_car.photos.attached? %>
+        <%= cl_image_tag @first_car.photos.first.key, height: 280, width: 390, crop: :scale, class: 'card-img-top' %>
+      <% else %>
+        <img class="card-img-top" src="https://resources.turo.com/f/81934/424x318/df302dea72/category-carousel_luxury-2x.jpg" alt="Image">
+      <% end %>
       <div class="card-body">
         <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[0]%>"><%=@counts.keys[0]%></a>
       </div>
     </div>
     <div class="card">
-      <%= cl_image_tag @second_cat.photos.first.key, height: 280, width: 390, crop: :scale, class: 'card-img-top' %>
+      <% if @second_car.photos.attached? %>
+        <%= cl_image_tag @second_car.photos.first.key, height: 280, width: 390, crop: :scale, class: 'card-img-top' %>
+      <% else %>
+        <img class="card-img-top" src="https://resources.turo.com/f/81934/424x318/7f4e44231c/category-carousel_classic-2x.jpg" alt="Image">
+      <% end %>
       <div class="card-body">
         <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[1]%>"><%=@counts.keys[1]%></a>
       </div>
     </div>
     <div class="card">
-      <%= cl_image_tag @third_cat.photos.first.key, height: 280, width: 390, crop: :scale, class: 'card-img-top' %>
+      <% if @third_car.photos.attached? %>
+        <%= cl_image_tag @third_car.photos.first.key, height: 280, width: 390, crop: :scale, class: 'card-img-top' %>
+      <% else %>
+        <img class="card-img-top" src="https://resources.turo.com/f/81934/424x318/288f0f5045/category-carousel_convertible-2x.jpg" alt="Image">
+      <% end %>
       <div class="card-body">
         <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[2]%>"><%=@counts.keys[2]%></a>
       </div>
     </div>
     <div class="card">
-      <%= cl_image_tag @fourth_cat.photos.first.key, height: 280, width: 390, crop: :scale, class: 'card-img-top' %>
+      <% if @fourth_car.photos.attached? %>
+        <%= cl_image_tag @fourth_car.photos.first.key, height: 280, width: 390, crop: :scale, class: 'card-img-top' %>
+      <% else %>
+        <img class="card-img-top" src="https://resources.turo.com/f/81934/424x318/3fc8dbffa5/category-carousel_minivan-2x.jpg" alt="Image">
+      <% end %>
       <div class="card-body">
         <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[3]%>"><%=@counts.keys[3]%></a>
       </div>

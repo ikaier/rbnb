@@ -10,9 +10,9 @@ class PagesController < ApplicationController
       categories.each { |name| @counts[name] += 1 }
     end
 
-    @first_cat = Car.find_by(category: @counts.keys[0])
-    @second_cat = Car.find_by(category: @counts.keys[1])
-    @third_cat = Car.find_by(category: @counts.keys[2])
-    @fourth_cat = Car.find_by(category: @counts.keys[3])
+    @first_car = Car.find_by(category: @counts.keys[0])
+    @second_car = Car.find_by(category: @counts.keys[1])
+    @third_car = Car.find_by(category: @counts.keys[2])
+    @fourth_car = Car.find_by(category: @counts.keys[3])
   end
 end
