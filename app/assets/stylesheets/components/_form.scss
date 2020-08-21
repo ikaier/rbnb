@@ -2,7 +2,8 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  font-weight: bold;
+  font-weight: lighter;
+  font-size: 16px;
   background: linear-gradient(#062b56, #062b59);
   transition: background 0.3s ease;
   border: 1px solid #062b56;
@@ -16,4 +17,8 @@
 h1.title {
  margin-top: 50px;
  margin-bottom: 25px;
+}
+
+.input-group > input {
+  font-size: 19px;
 }
