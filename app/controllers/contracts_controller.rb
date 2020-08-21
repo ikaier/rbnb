@@ -4,15 +4,13 @@ class ContractsController < ApplicationController
     end
 
     def create
-        @contract=Contract.new()
-        @contract.user=User.find(params[:user])
-        @contract.car=Car.find(params[:car])
-        if @contract.save
-          redirect_to success_path
-        else
-         render :new
-        end
-      end
+      @contract = Contract.new
+      @contract.user=current_user
+      @car = Car.find(params[:id])
+      @contract.car=@car
+
+      redirect_to car_path(@car)
+    end
 
       def success
       end
