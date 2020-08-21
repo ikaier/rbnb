@@ -3,15 +3,11 @@ Rails.application.routes.draw do
   get 'cars/:id/search', to: 'cars#index'
   get 'cars/new', to:'cars#new'
   post 'cars', to:'cars#create'
-
-
-
   get 'cars/:id', to:'cars#show', as: :car
-  #post 'cars/:id', to:'contracts#create'
-
+  get 'cars/:id/book', to:'cars#book', as: :book
   #get 'cars/:id/contracts/new', to:'contracts#new'
   get 'contracts/success', to:'contracts#success', as: :success
-  #post 'cars/:id/book', to:'contracts#create'
+  post 'cars/:id/book', to:'contracts#create'
   resources :pages do
     collection do
       get :home
@@ -19,7 +15,6 @@ Rails.application.routes.draw do
   end
 
   resources :cars do
-
     collection do
       get :new
     end

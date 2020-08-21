@@ -23,10 +23,6 @@ class CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
-
-    @contract = Contract.new
-    @contract.user=current_user
-    @contract.car=@car
   end
 
 #  def descending_help
@@ -55,7 +51,6 @@ class CarsController < ApplicationController
   @contract = Contract.new
   @contract.user=current_user
   @contract.car=@car
-
 
 end
 
