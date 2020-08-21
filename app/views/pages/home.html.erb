@@ -15,36 +15,44 @@
 
 <div class="cards-container">
   <h2><strong>Top Categories</strong></h2>
-  <div class="card-deck">
-    <div class="card">
-      <%= cl_image_tag @first_cat.photos.first.key, height: 280, width: 390, crop: :scale, class: 'card-img-top' %>
-      <div class="card-body">
-        <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[0]%>"><%=@counts.keys[0]%></a>
+  <div class="row">
+    <div class="col-sm-6 col-md-3">
+      <div class="card">
+        <%= cl_image_tag @first_cat.photos.first.key, :crop => :scale, class: 'card-img-top' %>
+        <div class="card-body">
+          <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[0]%>"><%=@counts.keys[0]%></a>
+        </div>
       </div>
     </div>
-    <div class="card">
-      <%= cl_image_tag @second_cat.photos.first.key, height: 280, width: 390, crop: :scale, class: 'card-img-top' %>
-      <div class="card-body">
-        <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[1]%>"><%=@counts.keys[1]%></a>
+    <div class="col-sm-6 col-md-3">
+      <div class="card">
+        <%= cl_image_tag @second_cat.photos.first.key, crop: :scale, class: 'card-img-top' %>
+        <div class="card-body">
+          <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[1]%>"><%=@counts.keys[1]%></a>
+        </div>
       </div>
     </div>
-    <div class="card">
-      <%= cl_image_tag @third_cat.photos.first.key, height: 280, width: 390, crop: :scale, class: 'card-img-top' %>
-      <div class="card-body">
-        <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[2]%>"><%=@counts.keys[2]%></a>
+    <div class="col-sm-6 col-md-3">
+      <div class="card">
+        <%= cl_image_tag @third_cat.photos.first.key, crop: :scale, class: 'card-img-top' %>
+        <div class="card-body">
+          <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[2]%>"><%=@counts.keys[2]%></a>
+        </div>
       </div>
     </div>
-    <div class="card">
-      <%= cl_image_tag @fourth_cat.photos.first.key, height: 280, width: 390, crop: :scale, class: 'card-img-top' %>
-      <div class="card-body">
-        <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[3]%>"><%=@counts.keys[3]%></a>
+    <div class="col-sm-6 col-md-3">
+      <div class="card">
+        <%= cl_image_tag @fourth_cat.photos.first.key, crop: :scale, class: 'card-img-top' %>
+        <div class="card-body">
+          <a class="card-link" href="https://aircns.herokuapp.com/cars/search?search=<%=@counts.keys[3]%>"><%=@counts.keys[3]%></a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <div class="cards-container">
-  <h2><strong>Last Offers</strong></h2>
+  <h2><strong>Newest Offers</strong></h2>
   <div class="row">
     <% @lastest_cars.limit(2).each do |car| %>
         <div class="col-sm-6">
@@ -55,7 +63,7 @@
                 <h5 class="card-title">$<%= car.price %> / day</h5>
               </div>
               <div class="center">
-              <%= button_to "Book Now!", car_path(car), class: "btn btn-blue" %>
+              <%= button_to "Book Now!", book_path(car), class: "btn btn-blue" %>
             </div>
           </div>
         </div>
